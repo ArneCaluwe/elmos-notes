@@ -1,5 +1,5 @@
 <section class="flex-list flex-list--vertical">
-  <app-note [note]="note1"></app-note>
-  <app-note [note]="note2"></app-note>
-  <app-note [note]="note3"></app-note>
+  <app-note [note]="note1" (close)="onClose(note1)"></app-note>
+  <app-note [note]="note2" (close)="onClose(note2)"></app-note>
+  <app-note [note]="note3" (close)="onClose(note3)"></app-note>
 </section>

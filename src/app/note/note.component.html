@@ -1,6 +1,7 @@
-<div class="quote" *ngIf="note">
+<div class="quote" [class.disabled]="note.isClosed" *ngIf="note">
   <h1 class="quote__title">{{ note.noteTitle }}</h1>
   <pre class="quote__content">
     {{ note.noteContent }}
   </pre>
+  <button (click)="onClose()" [disabled]="note.isClosed">close</button>
 </div>

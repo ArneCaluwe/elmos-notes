@@ -10,13 +10,22 @@ export class NoteCollectionComponent {
   note1: Note = {
     noteTitle: 'presents to buy',
     noteContent: 'wall-decoration',
+    isClosed: false,
   };
   note2: Note = {
     noteTitle: 'my wishlist',
     noteContent: 'running shoes',
+    isClosed: false,
   };
   note3: Note = {
     noteTitle: 'people to ignore',
     noteContent: 'John legend',
+    isClosed: false,
   };
+
+  onClose(note: Note) {
+    console.log('closed');
+
+    note.isClosed = true;
+  }
 }
