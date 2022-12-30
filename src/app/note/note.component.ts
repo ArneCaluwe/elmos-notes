@@ -13,9 +13,10 @@ export class NoteComponent {
   @Input()
   note?: Note;
   @Output()
-  close = new EventEmitter<void>();
+  noteChange = new EventEmitter<Note>();
 
   onClose() {
-    this.close.emit();
+    this.note!.isClosed = true;
+    this.noteChange.emit(this.note);
   }
 }

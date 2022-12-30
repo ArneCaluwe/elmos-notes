@@ -22,10 +22,4 @@ export class NoteCollectionComponent {
     noteContent: 'John legend',
     isClosed: false,
   };
-
-  onClose(note: Note) {
-    console.log('closed');
-
-    note.isClosed = true;
-  }
 }
