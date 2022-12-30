@@ -1,7 +1,21 @@
 <div class="quote" [class.disabled]="note.isClosed" *ngIf="note">
   <h1 class="quote__title">{{ note.noteTitle }}</h1>
-  <pre class="quote__content">
+  <div class="quote__content">
+    <ul>
+      <li *ngFor="let task of note.noteTasks; index as i">
+        <input
+          type="checkbox"
+          [name]="'note-task-' + (i + 1)"
+          [id]="'task_' + i"
+          [value]="task.taskReference"
+          [checked]="task.completed"
+        />
+        <label [appStrikethrough]="task.completed" [for]="'task_' + i">{{
+          task.taskContent
+        }}</label>
+      </li>
+    </ul>
     {{ note.noteContent }}
-  </pre>
+  </div>
   <button (click)="onClose()" [disabled]="note.isClosed">close</button>
 </div>
