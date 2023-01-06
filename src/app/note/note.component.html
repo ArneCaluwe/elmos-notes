@@ -8,7 +8,8 @@
           [name]="'note-task-' + (i + 1)"
           [id]="'task_' + i"
           [value]="task.taskReference"
-          [checked]="task.completed"
+          class="checkbox--disable"
+          [(ngModel)]="task.completed"
         />
         <label [appStrikethrough]="task.completed" [for]="'task_' + i">{{
           task.taskContent
@@ -17,5 +18,12 @@
     </ul>
     {{ note.noteContent }}
   </div>
-  <button (click)="onClose()" [disabled]="note.isClosed">close</button>
+  <button
+    [appHold]="500"
+    (eventEmitted)="onClose()"
+    [disabled]="note.isClosed"
+    class="icon icon--top-right icon--expanding"
+  >
+    ✘
+  </button>
 </div>
